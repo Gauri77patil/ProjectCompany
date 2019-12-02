@@ -1,0 +1,53 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ productData.domain }}!
+  </h1>
+
+</div>
+
+<div class="row">
+  <div class="col-sm-4">
+    <img width="300" alt="Angular Logo" src="{{productData.imageUrl}}">
+  </div>
+  <div class="col-sm-4">
+    <h4>{{productData.title}} </h4>
+    <ul>
+      <li>
+        <h5>Name : {{productData.name}}</h5>
+      </li>
+      <li>
+        <h5>Price : Rs. {{productData.price}}</h5>
+      </li>
+      <li>
+        <h5>Total Reviews : {{productData.reviewCount}}</h5>
+      </li>
+    </ul>       
+    <div class="container">
+      <div class="row" style="text-align: center !important">
+
+
+        <div class="col-sm-3 col-md-2" *ngFor="let data of productData.topScores" style="margin-right:20px">
+          {{data.topic}}
+          <div class="progress-percentage-wrapper">
+            <div class="progress-percentage ng-cloak" style="text-align: center !important">{{data.score}}</div>
+
+            <round-progress [current]="data.score" [max]="5" [color]="'#45ccce'" [background]="'#eaeaea'" [radius]="125"
+              [stroke]="20" [rounded]="true" [responsive]="true" [duration]="2000" [animation]="'easeInOutQuart'"
+              [animationDelay]="0"></round-progress>&nbsp;&nbsp;
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+   <!-- <h4>Customer Comments</h4>
+    <ul>
+        <li *ngFor="let c of comments">
+          <h5>{{c}}</h5>
+        </li>
+    </ul>  -->
+  </div>
+</div>
+
+<router-outlet></router-outlet>
